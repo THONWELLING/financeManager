@@ -20,21 +20,105 @@ import usePersistedData from './utils/usePersistedData'
 import { TableArea } from './components/TableArea'
 import { InfoArea } from './components/InfoArea'
 import { InputArea } from './components/InputArea'
+import ThemeChanger from './components/ThemeChanger'
+import ReactTooltip from "react-tooltip";
+//import ActionArea from "./components/ActionArea";
+import ModalAddItem from "./components/ModalAddItem";
 
 
 
 const App = () => {
-  const [list, setList] = useState(items);
-  const [filteredList, setFilteredList] = useState<Item[]>([]);
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
+  const [list, setList] = useState(items)
+  const [filteredList, setFilteredList] = useState<Item[]>([])
+  const [search, setSearch] = useState('')
+  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth())
   const [income, setIncome] = useState(0);
-  const [expense, setExpense] = useState(0);
+  const [expense, setExpense] = useState(0)
 
-  const [theme, setTheme] = usePersistedData('light', light);
+  const [theme, setTheme] = usePersistedData('light', light)
+  const [showModal, setShowModal] = useState(false)
 
-  useEffect(()=>{
+
+
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  }
+
+  const handleAddItem = (item: Item) => {
+
+    let newlist: Item[] = [...list];
+
+    newlist.push({
+      date: new Date(),
+      category: item.category,
+      title: item.title,
+      value: parseFloat(item.value.toFixed(2))
+    });
+
+    setList(newlist);
+
+    handleShowModal();
+  }
+
+  const handleFilterByCategory = (category: string) => {    
+    console.log("Categoria enviada: " + category);
+
+    if (category !== "all") {
+
+      setFilteredList(filterListByMonth(list, currentMonth));
+
+      let newList = filteredList.filter((item) => {
+        if (item.category === category)
+          return item;
+      });
+
+      setFilteredList(newList);
+
+    } else {
+      setFilteredList(filterListByMonth(list, currentMonth));
+    }
+
+  }
+
+  const handleFilterByTitle = () => {
+
+    if (search !== '') {
+      let newList = filteredList.filter((item: Item) => {
+        if (item.title.toLowerCase().indexOf(search.toLowerCase()) >= 0)
+          return item;
+      });
+
+      setFilteredList(newList);
+    } else {
+      setFilteredList(filterListByMonth(list, currentMonth));
+    }
+  }
+
+  const handleEditItem = (item: Item) => {
+
+  }
+
+  const handleDeleteItem = (title: string) => {
+
+    let newlist: Item[] = list.filter((item: Item) => {
+      if (item.title !== title)
+        return item;
+    });
+
+    setList(newlist);
+  }
+
+  useEffect(() => {
+
+    handleFilterByTitle();
+
+  }, [search]);
+
+
+  useEffect(() => {
     setFilteredList( filterListByMonth(list, currentMonth) )
   }, [list, currentMonth]);
+
 
   useEffect(()=>{
     let incomeCount = 0
@@ -56,20 +140,28 @@ const App = () => {
     setCurrentMonth(newMonth)
   }
 
-  const handleAddItem = (item: Item) => {
-    let newList = [...list]
-    newList.push(item)
-    setList(newList)
+
+
+  const toggleTheme = () => {
+    if (theme.title !== 'Dark') {
+      setTheme(dark)
+    } else {
+      setTheme(light)
+    }
   }
+
 
   return (
     <ThemeProvider theme={theme}>
       <C.Container>
       <C.Header>
         <C.HeaderText>Gerenciador Financeiro</C.HeaderText>
+        <ThemeChanger
+            data-tip="Mudar tema"
+            data-for="tip-top"
+            toogleTheme={toggleTheme} />
       </C.Header>
       <C.Body>
-        
         <InfoArea
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
@@ -83,6 +175,14 @@ const App = () => {
 
       </C.Body>
     </C.Container>
+    {showModal &&
+      <ModalAddItem
+        onShowModal={handleShowModal}
+        onAddItem={handleAddItem}
+      />
+    }
+
+    <GlobalStyles />
     </ThemeProvider>
   );
 }
