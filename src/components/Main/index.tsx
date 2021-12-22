@@ -1,5 +1,5 @@
 import * as C from './styles'
-
+import { TableArea } from '../TableArea'
 
 const Main = () => {
   return (
@@ -9,7 +9,7 @@ const Main = () => {
 
       {/* area de inserção  */}
 
-      {/* Tabela de itens  */}
+      <TableArea /> 
     </C.Container>
   )
 }
