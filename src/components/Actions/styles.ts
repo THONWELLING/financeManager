@@ -36,11 +36,13 @@ export const FilterItem = styled.select`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+
+   @media (max-width: 680px) {
+      width: 50%;
+    }
 `
 
-export const OptionItem = styled.option`
-
-`
+export const OptionItem = styled.option``
 
 export const SearchItem = styled.input`
   flex: 2;
@@ -52,4 +54,12 @@ export const SearchItem = styled.input`
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
+
+  ::placeholder {
+    background-color: transparent;
+  }
+
+   @media (max-width: 680px) {
+      width: 50%;
+    }
 `

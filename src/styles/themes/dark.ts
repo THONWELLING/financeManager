@@ -5,8 +5,8 @@ export const dark = {
         secundary: '#394053'
     },
     colors: {
-        primary: 'F0FFFF#',
-        secundary: 'F0FFFF#'
+        primary: '#DCDCDC',
+        secundary: '#F0FFFF'
     },
     shadow: {
         primary: '#CCC',

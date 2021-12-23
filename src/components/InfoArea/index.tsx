@@ -60,11 +60,13 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props
             <C.ResumeArea>
                 <ResumeItem
                     title='Total Entradas'
-                    value={parseFloat(income.toFixed(2))}  
+                    value={parseFloat(income.toFixed(2))} 
+                    color={'#28a745'} 
                 />
                 <ResumeItem               
                     title='Total De Saídas'
                     value={parseFloat(expense.toFixed(2))}
+                    color={'#dc3545'}
                 />
                 <ResumeItem
                     title='Saldo Total'

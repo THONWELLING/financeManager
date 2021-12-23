@@ -14,5 +14,3 @@ export const light = {
         secundary: '#141414'
     }
 }
-
-//#394053

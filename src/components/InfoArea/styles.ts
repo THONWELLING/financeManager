@@ -11,6 +11,13 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    color: #DCDCDC;
+
+     @media (max-width: 680px) {
+        flex-direction: column;
+        justify-content: center;
+    }
+
 `
 
 export const MonthArea  = styled.div`

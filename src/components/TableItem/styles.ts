@@ -8,6 +8,10 @@ export const TableColumn = styled.td`
     padding: 10px 0;
     font-weight: bold;
     color: ${props => props.theme.colors.primary};
+
+     @media (max-width: 680px) {
+        font-size: 0.8rem;
+    }
 `
 
 export const Category = styled.div<{ bgcolor: string }>`
