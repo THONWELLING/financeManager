@@ -1,6 +1,49 @@
-# Expense Tracker with React
+## App Para Gerenciamento Financeiro
 
-This project was made in React during a challenge called "5 Projetos em 5 Dias" by [B7Web](https://b7web.com.br).
+- ✔️ Implementação de DarkTheme/WhiteTheme
+- ✔️ Adicionar item
+- ✔️ Filtar por título
+- ✔️ Filtrar por categoria
+- ✔️ Icones
+- ✔️ Deletar Item
+
+## ⚙ Pré Requisitos
+
+- Antes de iniciar o projeto, você vai precisar das seguintes ferramentas:
+  - ✔️ [NodeJS](https://nodejs.org/en/download/)
+  - ✔️ [Visual Studio Code](https://code.visualstudio.com/)
+
+<br>
+
+## 🚀 Tecnologias Usadas
+
+Neste projeto foram usadas essas tecnologias:
+
+- ✔️ [React](https://pt-br.reactjs.org/)
+
+- ✔️ [Styled-components](https://styled-components.com/docs/basics#installation)
+
+- ✔️ [TypeScript](https://www.typescriptlang.org/)
+
+- ✔️ [React-Switch](https://www.npmjs.com/package/react-switch)
+
+- ✔️ [React-tooltip](https://www.npmjs.com/package/react-tooltip)
+
+- ✔️ [ReactHooks](https://pt-br.reactjs.org/)
+
+- ✔️ [ReactIcons](https://react-icons.github.io/react-icons)
+
+<br>
+
+## Acesse o Repositório
+
+```bash
+https://github.com/THONWELLING/financeManager
+```
+
+## 😃 [Meu Likedln](https://www.linkedin.com/in/wellington-sousa-9464a6179/)
+
+# financeManager with React
 
 ## First Steps
 
