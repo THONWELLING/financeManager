@@ -19,11 +19,10 @@ import usePersistedData from './utils/usePersistedData'
 //importação de componentes
 import { TableArea } from './components/TableArea'
 import { InfoArea } from './components/InfoArea'
-import { InputArea } from './components/InputArea'
 import ThemeChanger from './components/ThemeChanger'
 import ReactTooltip from "react-tooltip";
-//import ActionArea from "./components/ActionArea";
-import ModalAddItem from "./components/ModalAddItem";
+import Actions from './components/Actions';
+import ModalAddItem from './components/ModalAddItem';
 
 
 
@@ -154,35 +153,45 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <C.Container>
-      <C.Header>
-        <C.HeaderText>Gerenciador Financeiro</C.HeaderText>
-        <ThemeChanger
-            data-tip="Mudar tema"
-            data-for="tip-top"
-            toogleTheme={toggleTheme} />
-      </C.Header>
-      <C.Body>
-        <InfoArea
-          currentMonth={currentMonth}
-          onMonthChange={handleMonthChange}
-          income={income}
-          expense={expense}
+        <C.Header>
+          <C.HeaderText>Gerenciador Financeiro</C.HeaderText>
+          <ThemeChanger
+              data-tip="Mudar tema"
+              data-for="tip-top"
+              toogleTheme={toggleTheme} />
+        </C.Header>
+        <C.Body>
+          <InfoArea
+            currentMonth={currentMonth}
+            onMonthChange={handleMonthChange}
+            income={income}
+            expense={expense}
+          />
+          <Actions
+            onShowModal={handleShowModal}
+            onSetCategory={handleFilterByCategory}
+            onSearchText={setSearch}
+          />
+          <TableArea
+            list={filteredList}
+            onEditItem={handleEditItem}
+            onDeleteItem={handleDeleteItem}
+          />
+        </C.Body>
+        <ReactTooltip 
+          id='tip-top'
+          place='top'
+          effect='solid' 
         />
+      </C.Container>
+      {showModal &&
+        <ModalAddItem
+          onShowModal={handleShowModal}
+          onAddItem={handleAddItem}
+        />
+      }
 
-        <InputArea onAdd={handleAddItem} />
-
-        <TableArea list={filteredList} />
-
-      </C.Body>
-    </C.Container>
-    {showModal &&
-      <ModalAddItem
-        onShowModal={handleShowModal}
-        onAddItem={handleAddItem}
-      />
-    }
-
-    <GlobalStyles />
+      <GlobalStyles />
     </ThemeProvider>
   );
 }
