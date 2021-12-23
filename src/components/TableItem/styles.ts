@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
 
-export const TableLine = styled.tr`
-    
-`
+
+export const TableLine = styled.tr``
 
 export const TableColumn = styled.td`
     padding: 10px 0;
@@ -47,7 +46,4 @@ export const IconArea = styled.div`
     }
 `
 
-
-export const IconItem = styled.div`
-  
-`
+export const IconItem = styled.div``

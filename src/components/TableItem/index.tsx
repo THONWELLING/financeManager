@@ -6,7 +6,6 @@ import { categories } from '../../data/categories'
 
 import { BiEdit } from 'react-icons/bi'
 import { BsTrash } from 'react-icons/bs'
-
 import { FaUtensils } from 'react-icons/fa'
 import { GiTakeMyMoney } from 'react-icons/gi'
 import { IoIosHome } from 'react-icons/io'
@@ -64,16 +63,16 @@ export const TableItem = ({ item, handleEditItem ,handleDeleteItem }: Props) => 
             <C.TableColumn>
                 <C.IconArea>
                     <C.IconItem
-                        data-tip="Editar"
-                        data-for="tip-top"
+                        data-tip='Editar'
+                        data-for='tip-top'
                     >
                         <BiEdit
                             onClick={() => onEditItem(item)}
                         />
                     </C.IconItem>
                     <C.IconItem
-                        data-tip="Excluir"
-                        data-for="tip-top"
+                        data-tip='Excluir'
+                        data-for='tip-top'
                     >
                         <BsTrash
                             onClick={() => onDeleteItem(item)}

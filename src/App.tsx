@@ -156,8 +156,8 @@ const App = () => {
         <C.Header>
           <C.HeaderText>Gerenciador Financeiro</C.HeaderText>
           <ThemeChanger
-              data-tip="Mudar tema"
-              data-for="tip-top"
+              data-tip='Mudar tema'
+              data-for='tip-top'
               toogleTheme={toggleTheme} />
         </C.Header>
         <C.Body>

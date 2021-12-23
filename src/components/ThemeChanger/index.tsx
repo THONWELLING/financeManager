@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import Switcher from 'react-switch'
 
@@ -15,6 +15,7 @@ const ThemeChanger = ({toogleTheme}: props) => {
 
   return (
     <TS.Container>
+      <TS.White>White</TS.White>
       <Switcher
         onChange={toogleTheme}
         checked={title === "Dark"}
@@ -27,9 +28,9 @@ const ThemeChanger = ({toogleTheme}: props) => {
         onColor={colors.secundary}
         offHandleColor={background.primary}
         onHandleColor={colors.primary}
-        activeBoxShadow="0 0 3px #DDD"
-          
+        activeBoxShadow="0 0 3px #DDD"  
       />
+      <TS.Dark>Dark</TS.Dark>
     </TS.Container>
   )
 }

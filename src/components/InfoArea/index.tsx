@@ -1,6 +1,13 @@
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
 import * as C from './styles'
 import { formatCurrentMonth } from '../../helpers/dateFilter'
 import { ResumeItem } from '../ResumeItem'
+
+import { FaHandPointRight } from 'react-icons/fa'
+import { FaHandPointLeft } from 'react-icons/fa'
+
 
 type Props = {
     currentMonth: string
@@ -11,6 +18,8 @@ type Props = {
 
 export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props) => {
     
+    const theme = useContext(ThemeContext)
+
     const handlePrevMonth = () => {
         let [year, month] = currentMonth.split('-')
         let currentDate = new Date(parseInt(year), parseInt(month) - 1, 1)
@@ -28,17 +37,39 @@ export const InfoArea = ({ currentMonth, onMonthChange, income, expense }: Props
     return (
         <C.Container>
             <C.MonthArea>
-                <C.MonthArrow onClick={handlePrevMonth}>⬅️</C.MonthArrow>
+                <C.MonthArrow 
+                    onClick={handlePrevMonth}
+                    data-tip='Diminuir Mês'
+                    data-for='tip-top'
+                >
+                    <FaHandPointLeft
+                        color={theme.background.secundary}
+                    />
+                </C.MonthArrow>
                 <C.MonthTitle>{formatCurrentMonth(currentMonth)}</C.MonthTitle>
-                <C.MonthArrow onClick={handleNextMonth}>➡️</C.MonthArrow>
+                <C.MonthArrow
+                    onClick={handleNextMonth}
+                    data-tip='Avançar Mês'
+                    data-for='tip-top'
+                >
+                    <FaHandPointRight
+                        color={theme.background.secundary}
+                    />
+                </C.MonthArrow>
             </C.MonthArea>
             <C.ResumeArea>
-                <ResumeItem title="Total Entradas" value={income} />
-                <ResumeItem title="Total Saídas" value={expense} />
                 <ResumeItem
-                    title="Saldo Total"
-                    value={income - expense}
-                    color={(income-expense) < 0 ? 'red' : 'green'}
+                    title='Total Entradas'
+                    value={parseFloat(income.toFixed(2))}  
+                />
+                <ResumeItem               
+                    title='Total De Saídas'
+                    value={parseFloat(expense.toFixed(2))}
+                />
+                <ResumeItem
+                    title='Saldo Total'
+                    value={parseFloat((income - expense).toFixed(2))}
+                    color={(income-expense) < 0 ? '#dc3545' : '#28a745'}
                 />
             </C.ResumeArea>
         </C.Container>

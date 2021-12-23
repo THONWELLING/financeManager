@@ -103,6 +103,7 @@ export const InputValue = styled.input<{price: number}>`
   border: 2px solid ${props => props.price !== 0 ? '#28a745' : '#dc3545'};
   border-radius: 5px;
   margin-top: 5px;
+  background-color: transparent;
 `
 
 export const Footer = styled.div`

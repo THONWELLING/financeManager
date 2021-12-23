@@ -1,16 +1,19 @@
 import styled from "styled-components"
 
+
+
 export const Container = styled.div`
-    background-color: #FFF;
-    box-shadow: 0px 0px 5px #CCC;
+    background-color: ${props => props.theme.background.primary};
+    box-shadow: 0px 0px 5px ${props => props.theme.shadow.primary};
     border-radius: 10px;
     padding: 20px;
     margin-top: -40px;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 `
 
-export const MonthArea = styled.div`
+export const MonthArea  = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
@@ -26,6 +29,7 @@ export const MonthArrow = styled.div`
 export const MonthTitle = styled.div`
     flex: 1;
     text-align: center;
+    color: ${props => props.theme.colors.primary}
 `
 
 export const ResumeArea = styled.div`
