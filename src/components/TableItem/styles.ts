@@ -11,7 +11,7 @@ export const TableColumn = styled.td`
 `
 
 export const Category = styled.div<{ bgcolor: string }>`
-    display: flex;
+    display: inline-block;
     justify-content: flex-start;
     align-items: center;
     padding: 5px 10px;

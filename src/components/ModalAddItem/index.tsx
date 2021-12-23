@@ -5,13 +5,13 @@ import { Item } from '../../types/Item'
 import * as C from './styles'
 
 type Props = {
-    onShowModal: () => void
-    onAddItem: ({ title, category, value }: Item) => void
+  onShowModal: () => void
+  onAddItem: ({ title, category, value }: Item) => void
 }
 
 type categorieOption = {
-    category: string
-    title?: string
+  category: string
+  title?: string
 }
 
 const ModalAddItem = ({ onShowModal, onAddItem }: Props) => {
@@ -23,29 +23,29 @@ const ModalAddItem = ({ onShowModal, onAddItem }: Props) => {
     const [categoriesOption, setCategoriesOption] = useState<categorieOption[]>([])
 
     useEffect(() => {
-        getCategories()
+      getCategories()
     }, [])
 
     const getCategories = () => {
-        let newCategories = []
+      let newCategories = []
 
-        for (let i in items) {
-            newCategories.push({
-                category: items[i].category,
-                title: categories[items[i].category].title
-            })
-        }
+      for (let i in items) {
+        newCategories.push({
+          category: items[i].category,
+          title: categories[items[i].category].title
+        })
+      }
 
-        setCategoriesOption(newCategories)
+      setCategoriesOption(newCategories)
     }
 
     const closeModal = (e: any) => {
-        if (e.target.classList.contains('modal')) {
-            onShowModal()
-        }
-        else {
+      if (e.target.classList.contains('modal')) {
+        onShowModal()
+      }
+      else {
 
-        }
+      }
     }
 
   const handleAddItem = () => {
@@ -105,7 +105,7 @@ const ModalAddItem = ({ onShowModal, onAddItem }: Props) => {
                   category={category}
                   onChange={e => setCategory(e.target.value)}
                 >
-                  <C.CategoryOption value="">Selecione Uma categoria</C.CategoryOption>
+                <C.CategoryOption value="">Selecione Uma categoria</C.CategoryOption>
                   {categoriesOption.map((item, key) => (
                     <C.CategoryOption
                       key={key}

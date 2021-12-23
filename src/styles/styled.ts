@@ -5,16 +5,16 @@ declare module 'styled-components' {
     title: string
     
     background:{
-        primary: string,
-        secundary: string
+      primary: string,
+      secundary: string
     },
     colors: {
-        primary: string,
-        secundary: string
-    },
+      primary: string,
+      secundary: string
+  },
     shadow: {
-        primary: string,
-        secundary: string
-    }
+      primary: string,
+      secundary: string
+  }
   }
 }

@@ -117,10 +117,16 @@ export const BtnAdd = styled.button`
   margin-top: 10px;
   outline: 0;
   border: 0;
-  background-color: green;
+  background-color: #7B68EE;
   color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
   font-weight: bold;
+
+  &:hover {
+  background-color: #8A2BE2;
+  color: 	#98FB98;
+  transition: all ease .5s;
+  }
 `

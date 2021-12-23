@@ -1,9 +1,9 @@
 import ReactTooltip from "react-tooltip"
+import * as C from './styles'
 
 import { TableItem } from '../TableItem'
 import { Item } from '../../types/Item'
 
-import * as C from './styles'
 
 
 
@@ -18,17 +18,17 @@ export const TableArea = ({ list, onEditItem, onDeleteItem }: Props) => {
         <C.table>
             <thead>
                 <tr>
-                    <C.theadColumn width={100}>Data</C.theadColumn>
+                    <C.theadColumn width={120}>Data</C.theadColumn>
                     <C.theadColumn width={140}>Categoria</C.theadColumn>
                     <C.theadColumn>Título</C.theadColumn>
                     <C.theadColumn width={150}>Valor</C.theadColumn>
-                    <C.theadColumn width={50}>#</C.theadColumn>
+                    <C.theadColumn width={50}></C.theadColumn>
                 </tr>
             </thead>
             <tbody>
-                {list.map((item, key) => (
+                {list.map((item, index) => (
                     <TableItem
-                        key={key}
+                        key={index}
                         item={item} 
                         handleEditItem={onEditItem}
                         handleDeleteItem={onDeleteItem}

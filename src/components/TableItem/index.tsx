@@ -9,6 +9,7 @@ import { BsTrash } from 'react-icons/bs'
 import { FaUtensils } from 'react-icons/fa'
 import { GiTakeMyMoney } from 'react-icons/gi'
 import { IoIosHome } from 'react-icons/io'
+import { GiPayMoney } from 'react-icons/gi'
 
 
 
@@ -28,6 +29,10 @@ export const TableItem = ({ item, handleEditItem ,handleDeleteItem }: Props) => 
                 return <IoIosHome data-tip='Moradia' data-for='tip-top' />
             case 'Salário':
                 return <GiTakeMyMoney data-tip='Salário' data-for='tip-top' />
+            case 'Contas':
+                return <GiPayMoney data-tip='Contas' data-for='tip-top' />
+            case 'Extra':
+                return <GiTakeMyMoney data-tip='EXtra' data-for='tip-top' />
             default:
                 break;
         }
