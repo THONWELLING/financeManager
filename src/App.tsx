@@ -67,8 +67,11 @@ const App = () => {
       setFilteredList(filterListByMonth(list, currentMonth));
 
       let newList = filteredList.filter((item) => {
-        if (item.category === category)
+        if (item.category === category) {
           return item;
+        } else {
+          return item;
+        }
       });
 
       setFilteredList(newList);
@@ -82,8 +85,9 @@ const App = () => {
   const handleFilterByTitle = () => {
 
     if (search !== '') {
+      // eslint-disable-next-line array-callback-return
       let newList = filteredList.filter((item: Item) => {
-        if (item.title.toLowerCase().indexOf(search.toLowerCase()) >= 0)
+        if (item.title.toLowerCase().indexOf(search.toLowerCase()) >= 0) 
           return item;
       });
 
@@ -111,6 +115,7 @@ const App = () => {
 
     handleFilterByTitle();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
 
