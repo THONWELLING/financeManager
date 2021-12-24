@@ -103,6 +103,7 @@ const App = () => {
 
   const handleDeleteItem = (title: string) => {
 
+    // eslint-disable-next-line array-callback-return
     let newlist: Item[] = list.filter((item: Item) => {
       if (item.title !== title)
         return item;
